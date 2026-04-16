@@ -4,8 +4,8 @@ import './index.css'
 function App() {
 
   return (
-    <div className="text-white">Splyt App</div>
+    <div className="text-white">Splix App</div>
   )
 }
 
-export default App
+export default App;
