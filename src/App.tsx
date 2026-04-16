@@ -1,10 +1,11 @@
-// import { useState } from 'react'
+
 import './index.css'
+import AppRoutes from '@/app/routes';
 
 function App() {
 
   return (
-    <div className="text-white">Splix App</div>
+    <AppRoutes />
   )
 }
 

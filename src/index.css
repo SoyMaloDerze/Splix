@@ -1,25 +1,138 @@
 @import "tailwindcss";
 
+/* ================ 
+THEME VARIABLES
+================== */
+
 :root {
-  
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --bg: #0b0f14;
+  --bg-secondary: #121821;
+  --card: #151c26;
 
-  
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --text-primary: #e6edf3;
+  --text-secondary: #9aa4b2;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  --accent: #7c3aed;
+  --accent-light: #a78bfa;
+
+  --accent-secondary: #4f46e5;
+  --accent-secondary-soft: #1e1b4b;
+
+  --accent-soft: #2a1f4a;
+  --accent-glow: #c4b5fd;
+
+  --success: #22c55e;
+  --danger: #ef4444;
+
+  --border: #1f2937;
 }
 
+
+/*==========================
+  BASE STYLES
+============================*/
+
+html,
+body, 
+#root {
+  height: 100%;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: "Inter", system-ui, sans-serif;
+}
 body {
-  font-family: var(--sans);
-  background-color: #000;
-  color: #fff;
-  margin: 0;
+  background: radial-gradient(circle at top, #111827, #0b0f14 60%);
+}
+
+/* Smooth UI feel */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-duration: 200ms;
+}
+
+
+/*=====================
+  UTILITY CLASSES
+=======================*/
+
+.bg-base {
+  background-color: var(--bg);
+}
+
+.bg-card {
+  background-color: var(--card);
+}
+
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.text-muted {
+  color: var(--text-secondary);
+}
+
+.border-base {
+  background-color: var(--border);
+}
+
+/* Accent helpers */
+.text-accent {
+  color: var(--accent);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+.bg-accent-soft {
+  background-color: var(--accent-soft);
+}
+
+.text-accent-light {
+  color: var(--accent-light);
+}
+
+
+.text-accent-secondary {
+  color: var(--accent-secondary);
+}
+
+.bg-accent-secondary {
+  background-color: var(--accent-secondary);
+}
+
+.bg-accent-secondary-soft {
+  background-color: var(--accent-secondary-soft);
+}
+
+.glow-accent {
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.glow-soft {
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.glow-strong {
+  box-shadow: 0 0 30px var(--accent-glow);
+}
+
+/*
+  SCROLLBAR
+*/
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a3441;
+  border-radius: 10px;
 }
