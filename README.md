@@ -1,4 +1,4 @@
-# Splyt 💸
+# Splix 💸
 
 Track, Share, Split smarter
 
