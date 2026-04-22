@@ -1,13 +1,13 @@
 import { NAV_ITEMS } from "@/constants/navigation";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate  } from "react-router-dom";
 import { icons } from "@/components/ui/Icon";
 import { Plus } from "phosphor-react";
-import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function BottomNav() {
     // const { pathname } = useLocation();
     // const isDashboard = pathname === "/dashboard";
-    const [open, setOpen] = useState(false);
+    const navigate = useNavigate();
 
     return (
         <div className="md:hidden fixed bottom-0 left-0 right-0 z-50">
@@ -21,29 +21,33 @@ export default function BottomNav() {
                 </div>
 
                 {/* Floating FAB */}
-                <div className="absolute -top-7 left-1/2 -translate-x-1/2 z-10">
-                    <button
-                        aria-label="add"
-                        onClick={() => setOpen(prev => !prev)}
-                        className={`
+                <motion.div
+                    className="absolute -top-7 left-1/2 -translate-x-1/2 z-10"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                >
+                    <motion.button
+                        onClick={() => navigate("/add-money")}
+                        whileTap={{ scale: 0.9, rotate: 90 }}
+                        whileHover={{ scale: 1.05 }}
+                        className="
                             w-14 h-14 rounded-full
-                            flex items-center justify-center
                             bg-linear-to-br from-accent to-accent-secondary
-                            text-white
-                            transition-all duration-300 ease-out
-                            ${open ? "scale-95 shadow-[0_0_30px_rgba(168,85,247,0.9)]" : "scale-100 shadow-[0_0_20px_rgba(168,85,247,0.6)]"}
-                        `}
+                            flex items-center justify-center
+                            shadow-lg glow-accent
+                            relative
+                        "
                     >
-                        <Plus
-                            size={24}
-                            weight="bold"
-                            className={`
-                                transition-transform duration-300 ease-out
-                                ${open ? "rotate-45" : "rotate-0"}
-                            `}
-                        />
-                    </button>
-                </div>
+                        {/* Glow Ring */}
+                        <span className="absolute inset-0 rounded-full bg-accent blur-xl opacity-40" />
+
+                        {/* Icon */}
+                        <span className="relative text-white text-2xl font-bold">
+                            <Plus size={22} weight="duotone" />
+                        </span>
+                    </motion.button>
+                </motion.div>
 
                 {/* Nav Items */}
                 <div className="border-none flex justify-around items-center h-16 px-4">

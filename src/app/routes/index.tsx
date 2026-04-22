@@ -6,6 +6,8 @@ import Dashboard from "@/pages/dashboard/"
 import Splyt from "@/pages/splyt/"
 import Overview from "@/pages/overview/"
 import Profile from "@/pages/profile/"
+import AddMoney from "@/pages/add-money";
+import Transactions from "@/pages/transactions";
 
 
 export default function AppRoutes() {
@@ -21,7 +23,11 @@ export default function AppRoutes() {
         <Route path="/splyt" element={<Splyt />} />
         <Route path="/overview" element={<Overview />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/transactions" element={<Transactions />} />
       </Route>
+
+      {/* Add Money Route */}
+      <Route path="/add-money" element={<AddMoney />} />
     </Routes>
   );
 }

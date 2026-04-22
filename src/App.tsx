@@ -1,11 +1,18 @@
 
 import './index.css'
 import AppRoutes from '@/app/routes';
+import { AnimatePresence } from "framer-motion";
+// import { Routes, useLocation } from "react-router-dom";
 
 function App() {
+  
 
   return (
-    <AppRoutes />
+    <AnimatePresence mode="wait">
+      
+      <AppRoutes />
+      
+    </AnimatePresence>
   )
 }
 
